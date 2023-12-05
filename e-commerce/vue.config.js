@@ -1,7 +1,6 @@
-const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 
-module.exports = defineConfig({
+module.exports = {
   transpileDependencies: true,
   outputDir: 'dist',
   assetsDir: 'frontend',
@@ -10,4 +9,4 @@ module.exports = defineConfig({
     config.resolve.alias.set('@', path.resolve(__dirname, 'frontend'));
     config.entry('app').clear().add(path.resolve(__dirname, 'frontend/main.js')).end();
   }
-});
+};
