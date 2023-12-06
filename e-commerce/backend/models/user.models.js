@@ -1,17 +1,17 @@
 module.exports = (sequelize, Sequelize) => {
-    const Event = sequelize.define("event", {
-        id: {
-        type: Sequelize.INT
-        },
-        Username: {
-        type: Sequelize.VARCHAR
-        },
-        password: {
-        type: Sequelize.VARCHAR
-        }
-       
-   
+    const User = sequelize.define("user", {
+      username: {
+        type: Sequelize.STRING, // or the appropriate data type for your use case
+        allowNull: false,
+      },
+      password: {
+        type: Sequelize.STRING, // or the appropriate data type for your use case
+        allowNull: false,
+      },
+    
+      
     });
-    return Event;
-   };
-   
+  
+    return User;
+  };
+  
