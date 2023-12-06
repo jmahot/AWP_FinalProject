@@ -13,34 +13,33 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import axios from 'axios';
 
 export default {
   name: "LoginView",
-  data() {
-    return {
-      loginUsername: "",
-      loginPassword: "",
-    };
-  },
-  methods: {
-    loginUser() {
-      axios.post("http://localhost:5000/api/login", {
-        username: this.loginUsername,
-        password: this.loginPassword,
-      })
-      .then(response => {
-        console.log(response.data.message); // Display the server response
-        // Redirect to home view or perform other actions on successful login
-        const router = useRouter();
+  setup() {
+    const loginUsername = ref("");
+    const loginPassword = ref("");
+    const router = useRouter();
 
-        
-        router.push('/home'); 
-      })
-      .catch(error => {
-        console.error("Error during login:", error);
-      });
-    },
+    const loginUser = () => {
+      axios
+        .post("http://localhost:5000/api/login", {
+          username: loginUsername.value,
+          password: loginPassword.value,
+        })
+        .then((response) => {
+          console.log(response.data.message);
+          router.push("/");
+        })
+        .catch((error) => {
+          console.error("Error during login:", error);
+        });
+    };
+
+    return { loginUsername, loginPassword, loginUser };
   },
 };
 </script>
