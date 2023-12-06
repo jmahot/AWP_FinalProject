@@ -33,10 +33,11 @@ export default {
         .then((response) => {
           if (loginUsername.value == "	AdminJulie" || loginUsername.value == "AdminDany" || loginUsername.value == "AdminOlivier"){
             console.log(response.data.message);
-            //router.push("/"); mettre ici le chemin pour l'adminHome
+            router.push("/adminview");
           }
-          console.log(response.data.message);
-          router.push("/");
+          else {
+            console.log(response.data.message);
+            router.push("/");}
           
         })
         .catch((error) => {

@@ -7,7 +7,8 @@ import ProductList from '../components/user/ProductList.vue'
 import UserProfile from '../components/user/UserProfile.vue'
 import  RegisterView from '../components/auth/RegisterView.vue'
 import  LoginView from '../components/auth/LoginView.vue'
-
+import AdminView from '../views/AdminView.vue'
+import ManageUsers from '../components/admin/ManageUsers.vue'
 
 const routes = [
   {
@@ -57,7 +58,17 @@ const routes = [
     path: '/userview/userprofile',
     name: 'UserProfile',
     component: UserProfile
-  }
+  },
+  {
+    path: '/adminview',
+    name: 'AdminView',
+    component: AdminView
+  },
+  {
+    path: '/manageusers',
+    name : 'ManageUsers',
+    component : ManageUsers,
+  },
 ]
 
 const router = createRouter({
