@@ -63,9 +63,7 @@ export default {
 
 <style>
 /* Styles de base du tableau */
-body {
-  background-color: #ffffff;
-  color: white; /* Texte blanc pour contraste */
+body {  
   font-family: 'Arial', sans-serif; /* Police par défaut */
 }
 
