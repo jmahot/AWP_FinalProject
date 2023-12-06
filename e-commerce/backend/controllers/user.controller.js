@@ -53,3 +53,50 @@ exports.login = (req, res) => {
             res.status(500).json({ message: 'Internal server error' });
         });
 };
+
+
+exports.getAllUsers = (req, res) => {
+    User.findAll()
+        .then(users => {
+            res.status(200).send(users);
+        })
+        .catch(err => {
+            res.status(500).send({ message: err.message || "Some error occurred while retrieving users." });
+        });
+};
+
+exports.getUserByUsername = (req, res) => {
+    const username = req.params.username;
+
+    User.findOne({ where: { username: username } })
+        .then(user => {
+            if (user) {
+                res.status(200).send(user);
+            } else {
+                res.status(404).send({ message: "User not found." });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({ message: "Error retrieving user with username=" + username });
+        });
+};
+
+
+exports.deleteUserByUsername = (req, res) => {
+    const username = req.params.username;
+
+    User.destroy({
+        where: { username: username }
+    })
+    .then(num => {
+        if (num == 1) {
+            res.status(200).send({ message: "User was deleted successfully!" });
+        } else {
+            res.status(404).send({ message: `Cannot delete User with username=${username}. Maybe User was not found!` });
+        }
+    })
+    .catch(err => {
+        res.status(500).send({ message: "Could not delete User with username=" + username });
+    });
+};
+

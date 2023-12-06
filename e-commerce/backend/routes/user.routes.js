@@ -12,4 +12,13 @@ module.exports = function(app) {
 
     // Route for user login
     app.post('/api/login', users.login);
+    
+    // Route to get all users
+    app.get('/api/users', users.getAllUsers);
+
+    // Route to get a single user by username
+    app.get('/api/users/username/:username', users.getUserByUsername);
+
+    // Route to delete a user by username
+    app.delete('/api/users/username/:username', users.deleteUserByUsername);
 }

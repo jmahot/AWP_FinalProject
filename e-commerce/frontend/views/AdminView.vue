@@ -1,10 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <router-link to="/manageusers">Manage Users</router-link>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Test",
+  name: "AdminView",
   created() {},
   data() {
     return {};

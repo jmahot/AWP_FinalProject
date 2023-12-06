@@ -3,7 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/guestview">GuestView</router-link> |
-    <router-link to="/userview">UserView</router-link>
+    <router-link to="/userview">UserView</router-link>   |
+    <router-link to="/adminview">AdminView</router-link>
   </nav>
   <router-view/>
 </template>
