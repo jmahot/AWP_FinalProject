@@ -9,7 +9,7 @@ import  RegisterView from '../components/auth/RegisterView.vue'
 import  LoginView from '../components/auth/LoginView.vue'
 import AdminView from '../views/AdminView.vue'
 import ManageUsers from '../components/admin/ManageUsers.vue'
-
+import ManageProduct from '../components/admin/ManageProduct.vue'
 const routes = [
   {
     path: '/',
@@ -68,6 +68,11 @@ const routes = [
     path: '/manageusers',
     name : 'ManageUsers',
     component : ManageUsers,
+  },
+  {
+    path: '/manageproduct',
+    name : 'ManageProduct',
+    component : ManageProduct,
   },
 ]
 

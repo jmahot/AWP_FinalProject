@@ -1,6 +1,7 @@
 <template>
   <div>
     <router-link to="/manageusers">Manage Users</router-link>
+    <router-link to="/manageproduct">Manage ManageProduct</router-link>
   </div>
 </template>
 

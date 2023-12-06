@@ -10,18 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-app.get("/", (req, res) => {
- res.json({ message: "Hello EFREI’s Student - Your Server lives!!!"});
-});
-
-routes(app);
-
-
-// Connexion à la base de données et synchronisation
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server has started on port ${PORT}`);
+routes2(app);
+const PORT2 = process.env.PORT2 || 5001;
+app.listen(PORT2, () => {
+  console.log(`Server has started on port ${PORT2}`);
 
   db.sequelize.sync() // Utilisez force: true uniquement pour le développement
     .then(() => {
