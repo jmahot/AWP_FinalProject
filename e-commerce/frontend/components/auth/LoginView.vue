@@ -31,8 +31,13 @@ export default {
           password: loginPassword.value,
         })
         .then((response) => {
+          if (loginUsername.value == "	AdminJulie" || loginUsername.value == "AdminDany" || loginUsername.value == "AdminOlivier"){
+            console.log(response.data.message);
+            //router.push("/"); mettre ici le chemin pour l'adminHome
+          }
           console.log(response.data.message);
           router.push("/");
+          
         })
         .catch((error) => {
           console.error("Error during login:", error);
