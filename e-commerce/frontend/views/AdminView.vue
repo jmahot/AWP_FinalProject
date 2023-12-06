@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/manageusers">Login</router-link>
+    <router-link to="/manageusers">Manage Users</router-link>
   </div>
 </template>
 
