@@ -1,9 +1,9 @@
 module.exports = {
     HOST: "mysql.agh.edu.pl", 
    // localization your mySQL instance – in this example I use mySQL instance from AGH cloud
-    USER: "costada1", /// for example for me it is rogus
-    PASSWORD: "Qfy8jydB6AHMSjn1",
-    DB: "costada1",
+    USER: "costadan", /// for example for me it is rogus
+    PASSWORD: "9mFrnaoG6T6dDmXy",
+    DB: "costadan",
     dialect: "mysql",
     pool: {
     max: 5,
