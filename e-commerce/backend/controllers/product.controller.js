@@ -32,45 +32,51 @@ exports.create = (req, res) => {
             });
         }); 
 
+// TEST
+
+
+};
 
 exports.getAllProducts = (req, res) => {
     Product.findAll()
-        .then(products => { res.status(200).send(products); })
-        .catch(err => { res.status(500).send({ message: err.message || "Some error occurred while retrieving products." }); });
-};
-
+        .then(products => {
+            res.status(200).send(products);
+        })
+        .catch(err => {
+            console.error("Error getting products:", err);
+            res.status(500).send({ message: "Some error occurred while retrieving products." });
+        });
 };
 
 exports.getProductByISBN = (req, res) => {
-    const isbn = req.params.isbn;
-
-    Product.findOne({ where: { ISBN: isbn } })
+    const ISBN = req.params.ISBN;
+    Product.findOne({ where: { ISBN: ISBN} })
         .then(product => {
-            if (product) { res.status(200).send(product); }
-            else { res.status(404).send({ message: "Product not found." }); }
+            if (product) {
+                res.status(200).send(product);
+            } else {
+                res.status(404).send({ message: "Product not found." });
+            }
         })
-        .catch(err => { res.status(500).send({ message: "Error retrieving product with ISBN=" + isbn }); });
+        .catch(err => {
+            console.error("Error finding product:", err);
+            res.status(500).send({ message: "Error retrieving product with ISBN=" + ISBN });
+        });
 };
 
-exports.updateProductByISBN = (req, res) => {
-    const isbn = req.params.isbn;
-
-    Product.update(req.body, { where: { codeEAN: isbn } })
-        .then(num => {
-            if (num == 1) { res.status(200).send({ message: "Product was updated successfully." }); }
-            else { res.status(404).send({ message: `Cannot update Product with ISBN=${isbn}. Maybe Product was not found or req.body is empty!` }); }
-        })
-        .catch(err => { res.status(500).send({ message: "Error updating Product with ISBN=" + isbn }); });
-};
 
 exports.deleteProductByISBN = (req, res) => {
-    const isbn = req.params.isbn;
-
-    Product.destroy({ where: { ISBN: isbn } })
+    const ISBN = req.params.ISBN;
+    Product.destroy({ where: { ISBN: ISBN } })
         .then(num => {
-            if (num == 1) { res.status(200).send({ message: "Product was deleted successfully!" }); }
-            else { res.status(404).send({ message: `Cannot delete Product with ISBN=${isbn}. Maybe Product was not found!` }); }
+            if (num == 1) {
+                res.status(200).send({ message: "Product deleted successfully." });
+            } else {
+                res.status(404).send({ message: "Product not found." });
+            }
         })
-        .catch(err => { res.status(500).send({ message: "Could not delete Product with ISBN=" + isbn }); });
+        .catch(err => {
+            console.error("Error deleting product:", err);
+            res.status(500).send({ message: "Error deleting product with ISBN=" + ISBN });
+        });
 };
-
