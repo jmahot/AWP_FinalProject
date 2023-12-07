@@ -32,7 +32,7 @@
 
     <p>
         <label for="ISBN">ISBN</label>
-        <input id="ISBN" v-model="ISBN" type="number" name="ISBN" autocomplete="ISBN" />
+        <input id="ISBN" v-model="ISBN" type="text" name="ISBN" autocomplete="ISBN" />
     </p>
 
   <p>
