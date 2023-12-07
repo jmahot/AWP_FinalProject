@@ -4,7 +4,7 @@
       <router-link to="/adminview">Home</router-link> |
       <router-link to="/manageusers">Manage Users</router-link> |
       <router-link to="/manageproduct">Manage Product</router-link> |
-      <span>NickName</span> |
+      <router-link to="/userprofile">UserProfile</router-link> |
       <a @click="logout">Logout</a>
     </nav>
     <router-link to="/addproduct" class="add-product-button">Add Product</router-link>
@@ -28,11 +28,11 @@
           <td><img :src="product.image" alt="Product image" style="width: 100px; height: auto;"></td>
           <td>{{ product.illustrator }}</td>
           <td>{{ product.publicationDate }}</td>
-          <td>{{ product.price }}</td>
+          <td>{{ product.price }} $</td>
           <td>{{ product.ISBN }}</td>
           <td>{{ product.note }}</td>
           <td>
-            <button @click="deleteProduct(product.ISBN)">Delete</button>
+            <button class="delete-button" @click="deleteProduct(product.ISBN)">Delete</button>
             
           </td>
         </tr>
@@ -85,27 +85,9 @@ export default {
 
 <style scoped>
 .manage-products {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 2rem auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-nav {
-  background: #333;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 1rem;
-  font-weight: 500;
-}
-
-nav a:hover {
-  text-decoration: underline;
 }
 
 .add-product-button {
@@ -129,7 +111,7 @@ table {
 
 thead {
   background-color: #333;
-  color: #fff;
+  color: white;
 }
 
 th, td {
@@ -138,8 +120,12 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+tr {
+  background-color: white;
+}
+
 tr:hover {
-  background-color: #f4f4f4;
+  background-color: #EBF3E8;
 }
 
 button {
@@ -155,13 +141,12 @@ button:hover {
 }
 
 .delete-button {
-  background-color: #e53e3e; /* Red */
+  background-color: #CE5A67; /* Red */
   color: white;
 }
 
 img {
   width: 100px;
-  height: auto;
   border-radius: 4px;
 }
 </style>

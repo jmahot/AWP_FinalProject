@@ -3,7 +3,7 @@
     <router-link to="/userview">Home for User</router-link> |
     <router-link to="/userview/mycard">MyCard</router-link> |
     <router-link to="/userview/productlist">ProductList</router-link> |
-    <router-link to="/userview/userprofile">UserProfile</router-link> |
+    <router-link to="/userprofile">UserProfile</router-link> |
     <a @click="logout">Logout</a>
   </nav>
   <div>

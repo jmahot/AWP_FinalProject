@@ -44,7 +44,7 @@ const routes = [
     component: ProductList
   },
   {
-    path: '/userview/userprofile',
+    path: '/userprofile',
     name: 'UserProfile',
     component: UserProfile
   },
