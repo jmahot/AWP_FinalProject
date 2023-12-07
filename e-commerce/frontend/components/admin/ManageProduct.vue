@@ -6,6 +6,7 @@
     <span>NickName</span> |
     <a @click="logout">Logout</a>
   </nav>
+  <router-link to="/addproduct">Add Product</router-link>
 </template>
 
 <script>
@@ -26,6 +27,6 @@ export default {
 </script>
 
 
-//test
+
 
 <style lang="scss" scoped></style>
