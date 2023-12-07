@@ -1,8 +1,15 @@
 
 <template>
-  
-    <div>
-      <p>
+    <nav>
+    <router-link to="/adminview">Home</router-link> |
+    <router-link to="/manageusers">Manage Users</router-link> |
+    <router-link to="/manageproduct">Manage Product</router-link> |
+    <span>NickName</span> |
+    <a @click="logout">Logout</a>
+  </nav>
+
+  <div>
+  <p>
     <label for="title">title</label>
     <input id="title" v-model="title" type="text" name="title" autocomplete="title" />
   </p>
@@ -34,8 +41,7 @@
   </p>
   <button @click="createProduct">Create New product</button>
   
-  
-    </div>
+  </div>
   </template>
   
   <script>
