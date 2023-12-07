@@ -42,9 +42,9 @@
   <button @click="createProduct">Create New product</button>
   
   </div>
-  </template>
+</template>
   
-  <script>
+<script>
 import axios from 'axios';
 
 export default {
