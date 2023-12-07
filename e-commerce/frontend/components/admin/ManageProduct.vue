@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <router-link to="/addproduct">Register</router-link>
+  </div>
 </template>
 
 <script>

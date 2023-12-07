@@ -10,6 +10,8 @@ import  LoginView from '../components/auth/LoginView.vue'
 import AdminView from '../views/AdminView.vue'
 import ManageUsers from '../components/admin/ManageUsers.vue'
 import ManageProduct from '../components/admin/ManageProduct.vue'
+import AddProduct from '../components/admin/AddProduct.vue'
+
 const routes = [
   {
     path: '/',
@@ -73,6 +75,11 @@ const routes = [
     path: '/manageproduct',
     name : 'ManageProduct',
     component : ManageProduct,
+  },
+  {
+    path: '/addproduct',
+    name : 'AddProduct',
+    component : AddProduct,
   },
 ]
 
