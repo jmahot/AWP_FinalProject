@@ -1,6 +1,10 @@
 
 <template>
-  
+  <nav>
+      <router-link to="/guestview">Home</router-link> |
+      <router-link to="/loginview">Login</router-link> |
+      <router-link to="/registerview">Register</router-link>
+  </nav>
   <div>
     <p>
   <label for="username">Username</label>

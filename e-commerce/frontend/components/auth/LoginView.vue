@@ -1,4 +1,9 @@
 <template>
+  <nav>
+      <router-link to="/guestview">Home</router-link> |
+      <router-link to="/loginview">Login</router-link> |
+      <router-link to="/registerview">Register</router-link>
+  </nav>
   <div>
     <p>
       <label for="loginUsername">Username</label>
@@ -31,13 +36,13 @@ export default {
           password: loginPassword.value,
         })
         .then((response) => {
-          if (loginUsername.value == "	AdminJulie" || loginUsername.value == "AdminDany" || loginUsername.value == "AdminOlivier"){
+          if (loginUsername.value == "AdminJulie" || loginUsername.value == "AdminDany" || loginUsername.value == "AdminOlivier"){
             console.log(response.data.message);
             router.push("/adminview");
           }
           else {
             console.log(response.data.message);
-            router.push("/");}
+            router.push("/userview");}
           
         })
         .catch((error) => {

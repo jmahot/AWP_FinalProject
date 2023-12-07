@@ -1,34 +1,44 @@
 <template>
-    <div>
-      <h1>Manage Users</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Actions</th>
+  <nav>
+    <router-link to="/adminview">Home</router-link> |
+    <router-link to="/manageusers">Manage Users</router-link> |
+    <router-link to="/manageproduct">Manage Product</router-link> |
+    <span>NickName</span> |
+    <a @click="logout">Logout</a>
+  </nav>
+
+  <div>
+    <h1>Manage Users</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr v-for="user in users" :key="user.id" :class="isAdmin(user.username) ? 'admin-user' : 'non-admin-user'">
+          <td>{{ user.username }}</td>
+          <td>
+              <button v-if="!isAdmin(user.username)" @click="deleteUser(user.username)" class="delete-button">Delete</button>
+          </td>
           </tr>
-        </thead>
-        <tbody>
-            <tr v-for="user in users" :key="user.id" :class="isAdmin(user.username) ? 'admin-user' : 'non-admin-user'">
-            <td>{{ user.username }}</td>
-            <td>
-                <button v-if="!isAdmin(user.username)" @click="deleteUser(user.username)" class="delete-button">Delete</button>
-            </td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
-  </template>
+      </tbody>
+    </table>
+  </div>
+</template>
 
 <script>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 export default {
   name: "ManageUser",
   setup() {
     const users = ref([]);
     const admins = ["AdminJulie", "AdminDany", "AdminOlivier"]; // Noms d'utilisateur des administrateurs
+    const router = useRouter();
 
     const fetchUsers = () => {
       axios.get('http://localhost:5000/api/users')
@@ -56,7 +66,11 @@ export default {
 
     onMounted(fetchUsers);
 
-    return { users, deleteUser, isAdmin };
+    const logout = () => {
+      router.push("/");
+    };
+
+    return { users, deleteUser, isAdmin, logout};
   },
 };
 </script>

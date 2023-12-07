@@ -153,7 +153,7 @@ View for User :
 Home | Product LIST | MyCARD | "NickName" | Logout
 
 View for Admin
-Home | ManageProduct | Admin View (for manage user) | "admin" | Logout
+Home | ManageProduct | ManageUser | "admin" | Logout
 
 Extension for interested students ( options - extra 5 points ) – implementation ranking for products. Each of login user has a possible to rate a product by selecting some of the ranking stars ( for example)
 
