@@ -1,4 +1,3 @@
-
 const products = require('../controllers/product.controller');
 
 module.exports = function(app) {
