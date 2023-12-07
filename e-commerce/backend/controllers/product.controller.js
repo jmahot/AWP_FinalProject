@@ -30,6 +30,9 @@ exports.create = (req, res) => {
                 message: err.message || "An error occurred during product creation.",
                 error: err,
             });
-        });
-        
+        }); 
+
+// TEST
+
+
 };
