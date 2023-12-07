@@ -1,25 +1,29 @@
+// server.product.js
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const db = require("./models/index.models");
-const routes = require('./routes/user.routes'); 
-const routes2 = require('./routes/product.routes'); 
-
+const db = require("./models/index.models.product");
+const routes = require('./routes/product.routes'); 
 
 app.use(cors()); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-routes2(app);
-const PORT2 = process.env.PORT2 || 5001;
-app.listen(PORT2, () => {
-  console.log(`Server has started on port ${PORT2}`);
+app.get("/", (req, res) => {
+    res.json({ message: "Hello EFREI’s Student - Your Server lives!!!" });
+});
 
-  db.sequelize.sync() // Utilisez force: true uniquement pour le développement
-    .then(() => {
-      console.log("Drop and re-sync db.");
-    })
-    .catch((err) => {
-      console.log("Failed to sync db: " + err.message);
-    });
+routes(app);
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+    console.log(`Server has started on port ${PORT}`);
+
+    db.sequelize.sync() // Change this to force: true only for development
+        .then(() => {
+            console.log("Drop and re-sync db.");
+        })
+        .catch((err) => {
+            console.log("Failed to sync db: " + err.message);
+        });
 });

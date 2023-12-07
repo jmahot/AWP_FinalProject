@@ -1,4 +1,3 @@
-
 const products = require('../controllers/product.controller');
 
 module.exports = function(app) {
@@ -11,6 +10,9 @@ module.exports = function(app) {
     // Route for user registration
    
 
-    
-   
+
+
+//test
+
+
 }
