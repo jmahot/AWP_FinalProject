@@ -64,6 +64,21 @@ exports.getProductByISBN = (req, res) => {
         });
 };
 
+exports.updateProductByISBN = (req, res) => {
+    const ISBN = req.params.ISBN;
+    Product.update(req.body, { where: { ISBN: ISBN } })
+        .then(num => {
+            if (num == 1) {
+                res.status(200).send({ message: "Product updated successfully." });
+            } else {
+                res.status(404).send({ message: "Product not found." });
+            }
+        })
+        .catch(err => {
+            console.error("Error updating product:", err);
+            res.status(500).send({ message: "Error updating product with ISBN=" + ISBN });
+        });
+};
 
 exports.deleteProductByISBN = (req, res) => {
     const ISBN = req.params.ISBN;
