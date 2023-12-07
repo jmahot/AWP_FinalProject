@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server has started on port ${PORT}`);
 
-    db.sequelize.sync({ force: true }) // Change this to force: true only for development
+    db.sequelize.sync() // Change this to force: true only for development
         .then(() => {
             console.log("Drop and re-sync db.");
         })
