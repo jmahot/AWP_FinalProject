@@ -10,13 +10,9 @@ module.exports = function(app) {
     // Route for user registration
    
 
-    
-   
 
 
 //test
-
-
 
 
 }
